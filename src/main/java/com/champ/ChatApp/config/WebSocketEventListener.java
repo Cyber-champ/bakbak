@@ -39,6 +39,7 @@ public class WebSocketEventListener {
         String sessionId = StompHeaderAccessor.wrap(event.getMessage()).getSessionId();
         String userId = sessionUserMap.get(sessionId);
         sessionUserMap.remove(sessionId);
+        RoomController.waitingUsers.remove(userId);
 
         if (userId != null) {  // ← Add this check!
             roomController.managerRooms(userId);
