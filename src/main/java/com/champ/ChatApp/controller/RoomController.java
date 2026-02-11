@@ -22,7 +22,7 @@ public class RoomController {
     @Autowired
     private SimpMessagingTemplate messagingTemplate;
 
-    public static final Queue<String> waitingUsers = new ConcurrentLinkedQueue<>();
+    private final Queue<String> waitingUsers = new ConcurrentLinkedQueue<>();
     public static final ConcurrentHashMap<String, String> userToUserMap = new ConcurrentHashMap<>();
 
 
